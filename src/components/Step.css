@@ -1,0 +1,9 @@
+
+.normal {
+}
+.am-steps-label-vertical .am-steps-tail {
+    left: 0.6rem;
+    right: 0;
+    width: auto;
+    background-color: red;
+}

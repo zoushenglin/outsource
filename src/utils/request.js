@@ -22,9 +22,26 @@ function checkStatus(response) {
  * @return {object}           An object containing either "data" or "err"
  */
 export default function request(url, options) {
-  return fetch(url, options)
+  var obj;
+  if(options){
+    obj = [];
+    for(var i in options){
+      obj.push(`${i}=${options[i]}`);
+    }
+  }
+  if(obj){
+    options = obj.join('&');
+  }
+  return fetch(url, {
+      method: 'POST',
+      mode: "no-cors",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body:options
+    })
     .then(checkStatus)
     .then(parseJSON)
-    .then(data => ({ data }))
-    .catch(err => ({ err }));
+    .catch(err=>console.log('err = ',err));
 }
