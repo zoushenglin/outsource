@@ -7,6 +7,8 @@ import Content from '../components/Content';
 import Btns from '../components/Btns';
 import { VelocityTransitionGroup } from 'velocity-react'
 import Flex from '../components/Flex';
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
 class Main extends React.Component {
 
   constructor(props) {
@@ -16,6 +18,7 @@ class Main extends React.Component {
       hidden: false,
       leftBtn:true,
       car:'98',//车系
+      pinpai:'奥迪',//品牌
       driveHabit:'95',//驾车习惯
       dailyMaintain:'95',//日常保养
       vehicleCondition:'95',//平时用车路况
@@ -174,7 +177,6 @@ class Main extends React.Component {
 
   changeStatus = ()=>{
     let { index,step } = this.state;
-    console.log('index =',index);
     switch(index){
       case 0:
         step[0] = <Flex><span className='circle_active'></span><span className='line_active'></span></Flex>;
@@ -234,7 +236,6 @@ class Main extends React.Component {
     let { index,data } = this.state;
     if(index == data.length-2){
       let { car,data } = this.state
-      console.log(data.length);
       let core = parseInt(car)
         +parseInt(data[1].radio.value)
         +parseInt(data[2].radio.value)
@@ -288,6 +289,18 @@ class Main extends React.Component {
   }
 
   render() {
+    const car_options = [
+      { value: '98', label: '欧美' },
+      { value: '95', label: '日韩' },
+      { value: '90', label: '国产' }
+    ];
+    const pinpai = [
+      { value: '奥迪', label: '奥迪' },
+      { value: '大众', label: '大众' },
+      { value: '宝马', label: '宝马' },
+      { value: '奔驰', label: '奔驰' },
+      { value: '其它', label: '其它' }
+    ];
     return (
       <div className='bg'>
         <MyStep>
@@ -298,43 +311,31 @@ class Main extends React.Component {
         <VelocityTransitionGroup enter={{animation: "slideDown"}} leave={{animation: "slideUp"}}>
           {this.state.data[0].show?<Content style={{display:'flex !important'}}>
             <Flex style={{flexDirection:'column'}}>
-              <div>
-                <span>车系:</span>
-                <select defaultValue={this.state.car} onChange={(value)=>this.setState({
-                                                                          car:value.target.value
-                                                                        })}>
-                  <option value="98">
-                    欧美
-                  </option>
-                  <option value="95">
-                    日韩
-                  </option>
-                  <option value="90">
-                    国产
-                  </option>
-                </select>
-              </div>
+              <Flex>
+                <span className="select-span">车系:</span>
+                <Select className="selectStyle" value={this.state.car} options={car_options} onChange={(value)=>{
+                    if(value){
+                      this.setState({
+                        car:value.value
+                      })
+                    }
+                }} />
 
-              <div style={{marginTop:10}}>
-                <span>品牌:</span>
-                <select>
-                  <option value="98">
-                    奥迪
-                  </option>
-                  <option value="95">
-                    大众
-                  </option>
-                  <option value="90">
-                    宝马
-                  </option>
-                  <option value="90">
-                    奔驰
-                  </option>
-                  <option value="90">
-                    其它
-                  </option>
-                </select>
-              </div>
+              </Flex>
+
+              <Flex style={{marginTop:10}}>
+                <span className="select-span">品牌:</span>
+                <Select className="selectStyle" value={this.state.pinpai}
+                  options={pinpai}
+                  onChange={(value)=>{
+                    if(value){
+                      this.setState({
+                        pinpai:value.value
+                      })
+                    }
+                }}
+                />
+              </Flex>
             </Flex>
             </Content>:null}
         </VelocityTransitionGroup>
@@ -407,7 +408,7 @@ class Main extends React.Component {
               <Flex direction="column" style={{width:'100%'}}>
               <Flex direction="column" style={{width:'100%'}}>
                 <span>日均用车频率和日均行驶公里数:</span>
-                <Flex direction="column" style={{width:'100%',justifyContent:'flex-end',alignItems:'center'}}>
+                <Flex direction="column" style={{width:'150px',justifyContent:'flex-end',alignItems:'flex-end'}}>
                   {
                     this.state.data[4].radio.list.map((item,index)=>
                       <div className="margin10" onClick={()=>this.setData(4,index)}>
@@ -421,7 +422,7 @@ class Main extends React.Component {
 
               <Flex direction="column" style={{marginTop:10}}>
                 <span>日均行驶公里数:</span>
-                <Flex direction="column" style={{width:'100%',justifyContent:'flex-end',alignItems:'center'}}>
+                <Flex direction="column" style={{width:'150px',justifyContent:'flex-end',alignItems:'flex-end'}}>
                   {
                     this.state.data[5].radio.list.map((item,index)=>
                       <div className="margin10" onClick={()=>this.setData(5,index)}>

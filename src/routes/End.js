@@ -11,7 +11,7 @@ export default class End extends React.Component{
         createModal:false,
         dataMatch:false,
         result:false,
-        lvlv:'50%',
+        lvlv:'92%',
         core:'',//上个页面地址栏传过来的分数值
         status:[{
             bg:'white',
@@ -77,23 +77,18 @@ export default class End extends React.Component{
           if(core>=480 && core<496){
             status[0].bg = '#69CEE4';
             status[0].color = 'white';
-            lvlv = '40%';
           }else if(core>=496 && core<512){
             status[1].bg = '#69CEE4';
             status[1].color = 'white';
-            lvlv = '50%';
           }else if(core>=512 && core<528){
             status[2].bg = '#69CEE4';
             status[2].color = 'white';
-            lvlv = '60%';
           }else if(core>=528 && core<544){
             status[3].bg = '#69CEE4';
             status[3].color = 'white';
-            lvlv = '70%';
           }else{
             status[4].bg = '#69CEE4';
             status[4].color = 'white';
-            lvlv = '80%';
           }
           console.log(status);
           this.setState({
@@ -163,9 +158,9 @@ export default class End extends React.Component{
               <div style={{marginLeft:'5%',color:'white',display:'flex',justifyContent:'flex-start',alignItems:'center',position:'relative',top:30}}>
                 您的爱车健康指数结果
               </div>
-              <Flex style={{height:'100%'}} direction="column">
+              <Flex style={{height:'450px'}} direction="column">
 
-                <div style={{width:'90%',height:'80%',background:'white'}}>
+                <div style={{width:'90%',height:'80%',background:'white',borderRadius:'5px'}}>
                   <div className="resultImg flex">
                     570分
                   </div>
