@@ -3,10 +3,10 @@
     产品样式
 
 */
-html,body{
+html,body,:global(#root) {
   margin:0;
-  background:#00A6FF;
-  font-size:15px !important;
+  font-size:15px;
+  height:100%;
 }
 .bg{
     background:#00A6FF;
@@ -18,125 +18,126 @@ html,body{
     justify-content: center;
     align-items: center;
 }
-.circle_active{
-    border-radius: 15px;
-    width:15px;
-    height:15px;
-    background: white;
+.flex-direction-column{
+  flex-direction:column;
 }
-.circle{
-  border-radius: 15px;
-  width:15px;
-  height:15px;
-  background: rgb(221,221,221);
+.justify-content-flex-end{
+  justify-content: flex-end;
 }
-.line_active{
-  height:5px;
-  background:white;
-  width:20px;
+.justify-content-flex-start{
+  justify-content: flex-start;
 }
-.line{
-    height:5px;
-    background:rgb(221,221,221);
-    width:20px;
+.justify-content-center{
+  justify-content: center;
 }
-.content{
-    background:white;
-    height:70%;
-    width:90%;
-    border-radius: 5px;
-}
-.contentFlex{
-  display: flex !important;
-  justify-content: center !important;;
-  align-items: center !important;;
-  background:white;
-  height:70%;
-  width:90%;
-  margin-left: 5%;
-  border-radius: 5px;
+.full{
+  width:100%;
+  height:100%;
 }
 .full-width{
-    width:100%;
+  width:100%;
 }
-.full-height{
-  height:100% !important;
-}
-.fix{
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-}
-.left-btn{
-    flex:1;
-    height:40px;
-    background:#48BEFF;
-    border:none;
-    color:white;
-}
-.right-btn{
-    flex:2;
-    height:40px;
-    background:#00479A;
-    border:none;
-    color:white;
-}
-.margin10{
-  margin:10px;
-}
-.resultImg{
-  background-image: url("../img/duobianxing.png");
+.main-bg{
+  background-image: url("../img/1.png");
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center center;
+}
+.main-btn{
+  width:60%;
+  height:auto;
+  position: absolute;
+  bottom:20px;
+  left:20%;
+}
+.main-btn img{
   width:100%;
-  height:70%;
+  height:auto;
 }
-
-.theme-color{
-  color:#00A6FF;
+.c-slider{
+  overflow: hidden;
 }
-.small-font{
-  font-size:13px;
+.chexi{
+  background: url("../img/2-1.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
-.padding-top-5{
-  padding-top: 5px;
+.lukuang{
+  background: url("../img/2-2.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
-.huise{
-  color:rgb(136,136,136);
+.gonglishu{
+  background: url("../img/2-3.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
-.xuhao{
-  width:15px;
-  height:15px;
-  background: #00A6FF;
-  border-radius: 15px;
-  line-height: 15px;
-  text-align: center;
+.baoyang{
+  background: url("../img/2-4.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.zhibao{
+  background: url("../img/2-5.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.strip-gray{
+  background: url("../img/strip-gray.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width:164px;
+  height:35px;
+}
+.strip{
+  background: url("../img/strip.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width:164px;
+  height:35px;
+}
+.padding{
+  padding:15px;
+}
+.padding-top-30{
+  padding-top: 30px;
+}
+.margin-top-15{
+  margin-top: 15px;
+}
+.margin-top-15{
+  margin-top: 10px;
+}
+.banner-bottom-btns{
+  border:none;
+  background: none;
+}
+.banner-bottom-btns img{
+  width:97px;
+  height:32px;
+}
+.result-bg{
+  background: url("../img/dark.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+button{
+  border:none;
+  background:none;
+}
+.font-style{
+  color: transparent;
+  -webkit-text-stroke: 1px rgb(136,136,136);
 }
 .white-color{
   color:white;
 }
-.margin-left10{
-  margin-left: 10px;
-}
-.margin-left-1em{
-  margin-left: 10px;
-}
-.margin-top-1em{
-  margin-top: 10px;
-}
-.VelocityTransitionGroup-flex{
-  display:flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  width:100%;
-  height:100%;
-}
-.selectStyle{
-  width:100px;
-  height:40px;
-}
-.select-span{
-  height:30px;
-  line-height: 30px;
-  margin-right: 10px;
-}
+

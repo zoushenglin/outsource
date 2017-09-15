@@ -1,6 +1,7 @@
 {
-  "entry": "src/index.js",
+  "entry": "src/index*.js",
   "disableCSSModules":true,
+  "publicPath":"./",
   "env": {
     "development": {
       "extraBabelPlugins": [
@@ -15,3 +16,4 @@
     }
   }
 }
+
